@@ -72,13 +72,22 @@
             responseDiv.style.display = 'none';
             
             try {
-                // Envío REAL a Formspree
-                const response = await fetch('https://formspree.io/f/movwwgad', {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-                
+               <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/movwwgad"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
                 if (response.ok) {
                     showResponse('✔️ Mensaje enviado. ¡Gracias!', '#4CAF50');
                     form.reset();
